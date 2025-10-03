@@ -1,0 +1,86 @@
+.perfil-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.perfil-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 3px solid #fb8500;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin: 5px 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.fecha-creacion {
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.perfil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.perfil-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.perfil-form textarea,
+.perfil-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.perfil-form button {
+  background-color: #fb8500;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.perfil-form button:hover {
+  background-color: #e27c00;
+}
+
+.logout-btn {
+  margin-top: 20px;
+  background: #d9534f;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #c9302c;
+}

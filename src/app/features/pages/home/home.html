@@ -1,0 +1,13 @@
+<section id="profile">
+  <div class="user-card" *ngIf="userData() as user">
+    <img [src]="user.avatarUrl || '/assets/default-avatar.png'" alt="Avatar del usuario" />
+    <h2>{{ user.username }}</h2>
+    <p><b>Email:</b> {{ user.email || 'No especificado' }}</p>
+    <p><b>Fecha de registro:</b> {{ user.createdAt | date:'longDate' }}</p>
+    <p><b>Películas añadidas:</b> {{ totalPeliculas() }}</p>
+  </div>
+</section>
+
+<section id="info">
+  <p>🎬 Bienvenido a <b>MovieRate</b>. Aquí podrás calificar películas, ver tus reseñas y gestionar tu perfil.</p>
+</section>

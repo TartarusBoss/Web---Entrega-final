@@ -1,0 +1,45 @@
+<section class="perfil-container">
+  <h2>👤 Mi Perfil</h2>
+
+  <div class="perfil-info">
+    <img
+      [src]="userSignal()?.avatarUrl || 'assets/default-avatar.png'"
+      alt="Avatar"
+      class="avatar"
+    />
+
+    <h3>{{ username }}</h3>
+    <p class="fecha-creacion">
+      🗓️ Cuenta creada el: {{ userSignal()?.createdAt | date:'longDate' }}
+    </p>
+  </div>
+
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSaveProfile()" class="perfil-form">
+    <label for="email">📧 Email</label>
+    <input type="email" id="email" formControlName="email" />
+
+    <label for="bio">📝 Biografía</label>
+    <textarea id="bio" formControlName="bio"></textarea>
+
+    <button type="submit" class="btn-primary">💾 Guardar cambios</button>
+  </form>
+
+  <hr />
+
+  <h3>🔑 Cambiar contraseña</h3>
+  <form [formGroup]="profileForm" (ngSubmit)="onChangePassword()" class="perfil-form">
+    <label for="password">Contraseña actual</label>
+    <input type="password" id="password" formControlName="password" />
+
+    <label for="newPassword">Nueva contraseña</label>
+    <input type="password" id="newPassword" formControlName="newPassword" />
+
+    <button type="submit" class="btn-secondary">Actualizar contraseña</button>
+  </form>
+
+  <hr />
+
+  <h3>🖼️ Cambiar avatar</h3>
+  <input type="file" (change)="onUploadAvatar($event)" accept="image/*" />
+</section>

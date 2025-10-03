@@ -1,0 +1,17 @@
+<section id="login-box">
+    <h2>Inicio de sesión</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <label for="username">Nombre de usuario</label>
+        <input type="text" id="username" formControlName="username" />
+        <small *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">Nombre requerido (min 3)</small>
+
+        <label>Contraseña</label>
+        <input type="password" id="password" placeholder="Ingrese contraseña" formControlName="password" />
+        <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">Contraseña requerida (min 4)</small>
+
+        <button type="submit" class="primary">Iniciar sesión</button>
+    </form>
+    <div style="margin-top:12px; text-align:center;">
+      <a class="secondary" routerLink="/sign-up">¿No tienes cuenta? Registrarse</a>
+    </div>
+</section>

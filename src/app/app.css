@@ -1,0 +1,17 @@
+:root{
+  --primary:#ffb703;
+  --accent:#007bff;
+  --bg:#f4f4f4;
+}
+
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+}
+
+header{ background:#222; padding:12px 0; color:#fff; }
+.main-nav{ display:flex; gap:18px; justify-content:center; }
+.main-nav a{ color:#fff; text-decoration:none; font-weight:600; }
+.app-main{ padding:20px; min-height:70vh; }
+.app-footer{ background:#222; color:#fff; padding:12px; text-align:center; }

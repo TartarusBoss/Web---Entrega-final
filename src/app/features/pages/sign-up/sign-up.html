@@ -1,0 +1,24 @@
+<section id="login-box">
+    <h2>Registro de usuario</h2>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+        <label>Nombre de usuario</label>
+        <input type="text" id="username" formControlName="username" />
+        <small *ngIf="signUpForm.get('username')?.touched && signUpForm.get('username')?.invalid">Requiere 3 caracteres</small>
+
+        <label>Email</label>
+        <input type="text" id="email" formControlName="email" />
+        <small *ngIf="signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid">Email inválido</small>
+
+        <label>Contraseña</label>
+        <input type="password" id="password" placeholder="Ingrese contraseña" formControlName="password" />
+
+        <label>Confirmar contraseña</label>
+        <input type="password" id="rePassword" placeholder="Confirme contraseña" formControlName="rePassword" />
+        <small *ngIf="signUpForm.get('rePassword')?.touched && signUpForm.get('rePassword')?.invalid">Confirma tu contraseña</small>
+
+        <button type="submit" class="primary">Crear usuario</button>
+    </form>
+    <div style="margin-top:12px; text-align:center;">
+      <a class="secondary" routerLink="/">Regresar al login</a>
+    </div>
+</section>

@@ -1,13 +1,10 @@
-<header>
-  <nav class="main-nav">
-    <!-- Estos enlaces siempre estarán visibles -->
-    <a routerLink="/">Iniciar sesión</a>
-    <a routerLink="/sign-up">Registrarse</a>
+<app-header></app-header>
 
-    <!-- Perfil solo si el usuario está logueado -->
-    <a *ngIf="isLogged()" routerLink="/perfil">Mi Perfil</a>
-  </nav>
-</header>
+<!-- DEBUG: mostrar estado de sesión (solo para desarrollo) -->
+<div style="background:#fff3cd;color:#856404;padding:8px 12px;border-bottom:1px solid #ffeeba; font-size:0.9rem;">
+  <strong>DEBUG:</strong>
+  Auth isLogged: {{ isLogged() }} — sessionStorage.userLogged: {{ getSessionUser() }}
+</div>
 
 <main class="app-main">
   <router-outlet></router-outlet>

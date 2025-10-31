@@ -12,6 +12,7 @@ npm-debug.log
 yarn-error.log
 node_modules/
 dist/
+/src/assets/env.js
 
 # IDEs and editors
 .idea/

@@ -32,7 +32,12 @@ export class Login {
     const resp = this.authService.login(user);
     if (resp.success) {
       Swal.fire('✅ Ingreso exitoso');
-      this.router.navigate([resp.redirectTo || 'perfil']);
+      console.log('[Login] successful, navigating to', resp.redirectTo || '/catalog');
+      // navigate using router; fallback to navigateByUrl after a small delay if needed
+      this.router.navigate([resp.redirectTo || 'catalog']).catch(err => {
+        console.warn('[Login] navigate failed, fallback', err);
+        this.router.navigateByUrl('/catalog');
+      });
       return;
     }
     Swal.fire({

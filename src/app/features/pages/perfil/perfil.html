@@ -7,22 +7,26 @@
       alt="Avatar"
       class="avatar"
     />
-
-    <h3>{{ username }}</h3>
-    <p class="fecha-creacion">
-      🗓️ Cuenta creada el: {{ userSignal()?.createdAt | date:'longDate' }}
-    </p>
+    <div class="user-info">
+      <h3>{{ userSignal()?.username }}</h3>
+      <p class="fecha-creacion">
+        🗓️ Cuenta creada el: {{ userSignal()?.createdAt | date:'longDate' }}
+      </p>
+    </div>
   </div>
-
-
   <form [formGroup]="profileForm" (ngSubmit)="onSaveProfile()" class="perfil-form">
+    <label for="username">👤 Nombre de usuario</label>
+    <input id="username" type="text" formControlName="username" />
+
     <label for="email">📧 Email</label>
-    <input type="email" id="email" formControlName="email" />
+    <input type="email" id="email" [value]="userSignal()?.email" readonly class="readonly-input" />
 
     <label for="bio">📝 Biografía</label>
     <textarea id="bio" formControlName="bio"></textarea>
 
-    <button type="submit" class="btn-primary">💾 Guardar cambios</button>
+    <div class="actions-row">
+      <button type="submit" class="btn-primary">💾 Guardar cambios</button>
+    </div>
   </form>
 
   <hr />
@@ -42,4 +46,13 @@
 
   <h3>🖼️ Cambiar avatar</h3>
   <input type="file" (change)="onUploadAvatar($event)" accept="image/*" />
+
+  <hr />
+
+  <!-- Sección de reseñas -->
+  <app-user-reviews [username]="username"></app-user-reviews>
+
+  <div class="logout-bottom">
+    <button type="button" class="btn-logout" (click)="onLogout()">🚪 Cerrar sesión</button>
+  </div>
 </section>
